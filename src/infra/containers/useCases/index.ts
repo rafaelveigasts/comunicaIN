@@ -15,6 +15,9 @@ import {IListUserByIdUseCase} from '@/application/useCases/interfaces/IListUserB
 import { DeleteUserByIdUseCase } from '@/application/useCases/DeleteUserByIdUseCase'
 import {IDeleteUserByIdUseCase} from '@/application/useCases/interfaces/IDeleteUserByIdUseCase'
 
+import { ICEPProvider } from '@/shared/providers/CEPProvider/ICEPProvider'
+import { CEPProvider } from '@/shared/providers/CEPProvider/CepProvider'
+
 container.registerSingleton<ICreateUserUseCase>(
   'ICreateUserUseCase',
   CreateUserUseCase
@@ -30,3 +33,5 @@ container.registerSingleton<IListUsersUseCase>('IListUsersUseCase', ListUsersUse
 container.registerSingleton<IListUserByIdUseCase>('IListUserByIdUseCase', ListUserByIdUseCase)
 
 container.registerSingleton<IDeleteUserByIdUseCase>('IDeleteUserByIdUseCase', DeleteUserByIdUseCase)
+
+container.registerSingleton<ICEPProvider>('ICEPProvider', CEPProvider)

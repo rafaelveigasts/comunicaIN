@@ -9,7 +9,7 @@ async function run() {
 
      await prisma.user.create({
         data: {
-          name: faker.internet.userName(),
+          name: "Seed",
           pass: "123456",
         },
       })

@@ -9,7 +9,7 @@
   "scripts": {
     "build": "rimraf build && tsc -p tsconfig-build.json",
     "prod": "node --trace-warnings -r dotenv/config build/server.js",
-    "dev": "tsnd  --transpile-only --ignore-watch node_modules -r tsconfig-paths/register src/server.ts",
+    "dev": "docker compose up -d && tsnd  --transpile-only --ignore-watch node_modules -r tsconfig-paths/register src/server.ts",
     "dev:stg": "dotenvx run --env-file=.env.stg -- tsnd --inspect --transpile-only --ignore-watch node_modules -r tsconfig-paths/register src/server.ts",
     "dev:prd": "dotenvx run --env-file=.env.prd -- tsnd --inspect --transpile-only --ignore-watch node_modules -r tsconfig-paths/register src/server.ts",
     "test": "vitest",
