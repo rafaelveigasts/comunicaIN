@@ -5,9 +5,11 @@ import { ListUsersController } from "@/application/controllers/ListUsersControll
 import { ListUserByIdController } from "@/application/controllers/ListUserByIdController";
 import { UpdateUserController } from "@/application/controllers/UpdateUserController";
 import { DeleteByIdController } from "@/application/controllers/DeleteByIdController";
+import { LoginUserController } from "@/application/controllers/LoginUserController";
 
 container.registerSingleton<Controller>('ICreateUserController', CreateUserController);
 container.registerSingleton<Controller>('IUpdateUserController', UpdateUserController);
 container.registerSingleton<Controller>('IListUsersController', ListUsersController);
 container.registerSingleton<Controller>('IListUserByIdController', ListUserByIdController);
 container.registerSingleton<Controller>('IDeleteByIdController', DeleteByIdController);
+container.registerSingleton<Controller>('ILoginUserController', LoginUserController);

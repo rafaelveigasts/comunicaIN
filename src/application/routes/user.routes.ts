@@ -16,15 +16,22 @@ import { DeleteUserByIdDTO } from '../controllers/dto/DeleteUserByIdDTO'
 
 import {ListUserByIdController} from '../controllers/ListUserByIdController'
 import { ListUserByIdDTO } from '../controllers/dto/ListUserByIdDTO'
+import { LoginUserController } from '../controllers/LoginUserController'
+import validationToken from './validationToken'
 
 const createUserController = container.resolve(CreateUserController)
 const updateUserController = container.resolve(UpdateUserController)
 const listUserController = container.resolve(ListUsersController)
 const listUserByIdController = container.resolve(ListUserByIdController)
 const deleteUserController = container.resolve(DeleteByIdController)
+const loginController = container.resolve(LoginUserController)
 // const exportUserController = container.resolve(ExportUserController)
 
 export default (router: Router): void => {
+  router.post('/login', adaptRoute(loginController))
+
+  router.use(validationToken());
+
   router.post(
     '/user',
     validateDTO(CreateUserDTO),
@@ -57,6 +64,7 @@ export default (router: Router): void => {
     validateDTO(DeleteUserByIdDTO),
     adaptRoute(deleteUserController)
   )
+
  
 
 
