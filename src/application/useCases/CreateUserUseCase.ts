@@ -13,11 +13,12 @@ export class CreateUserUseCase implements ICreateUserUseCase{
     private userRepository: IUserRepository
   ){}
 
-  async execute(data: CreateUserDTO): Promise<User> {
+  async execute({name,pass}: CreateUserDTO): Promise<User> {
 
 
     const user = await this.userRepository.create({ 
-      name: data.name
+      name, 
+      pass
     });
 
 

@@ -13,8 +13,10 @@ export class DeleteByIdController implements Controller {
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
 
     const { id } = httpRequest.params
+
     await this.deleteUserByIdUseCase.execute(id)
 
     return okNoContent()
   }
 }
+

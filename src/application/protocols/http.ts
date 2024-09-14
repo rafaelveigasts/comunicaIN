@@ -1,6 +1,3 @@
-import { IBrandInfo } from '../dto/IBrandInfo'
-import { TUserToToken } from '../dto/TPatientLogin'
-
 export interface HttpResponse {
   statusCode: number
   body: any
@@ -12,7 +9,4 @@ export interface HttpRequest {
   headers?: any
   params?: any
   query?: any
-  brand: IBrandInfo
-  user: TUserToToken
-  file?: Express.Multer.File
 }

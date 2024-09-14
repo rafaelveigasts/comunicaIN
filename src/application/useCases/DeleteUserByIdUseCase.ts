@@ -19,7 +19,7 @@ export class DeleteUserByIdUseCase implements IDeleteUserByIdUseCase{
       throw new NotFound("User not found")
     }
 
-    await this.userRepository.delete(id)
+    await this.userRepository.delete(user.id)
 
     return 
   }

@@ -10,10 +10,11 @@ export class PrismaUserRepository implements IUserRepository {
     this.user = prisma.user
   }
 
-  async create({ name }: CreateUserDTO): Promise<User> {
+  async create({ name, pass }: CreateUserDTO): Promise<User> {
     const user = await this.user.create({
       data: {
-        name
+        name,
+        pass
       }
     })
 
@@ -21,7 +22,7 @@ export class PrismaUserRepository implements IUserRepository {
   }
 
   async delete(id: string): Promise<void> {
-    await this.user.findFirst({
+    await this.user.delete({
       where: {
         id
       }
@@ -35,14 +36,17 @@ export class PrismaUserRepository implements IUserRepository {
       }
     })
 
+    console.log(user)
+
     return user
   }
 
-  async update({ id,name }: UpdateUserInput): Promise<User> {
+  async update({ id,name, pass }: UpdateUserInput): Promise<User> {
     const updated = await this.user.update({
       where: { id },
       data: {
         name,
+        pass
         
       }
     })

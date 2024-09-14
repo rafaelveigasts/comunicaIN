@@ -4,5 +4,9 @@ export class CreateUserDTO {
   @IsString()
   @IsNotEmpty()
   public name: string;
+
+  @IsString()
+  @IsNotEmpty()
+  public pass: string;
 }
 

@@ -11,7 +11,7 @@ export class UpdateUserUseCase implements IUpdateUserUseCase {
     private userRepository: IUserRepository
   ) {}
 
-  async execute({ id, name }: UpdateUserInput): Promise<User> {
+  async execute({ id, name, pass }: UpdateUserInput): Promise<User> {
     const userExists = await this.userRepository.findById(id)
 
     if (!userExists) {
@@ -21,6 +21,7 @@ export class UpdateUserUseCase implements IUpdateUserUseCase {
     const user = await this.userRepository.update({
     id,
      name,
+     pass
     })
 
     return user

@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, IsNumber, IsString } from "class-validator";
+import { IsEmail, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
 
 
 export class UpdateUserDTO {
@@ -7,11 +7,12 @@ export class UpdateUserDTO {
   public id: string;
 
 
-  @IsNumber()
+  @IsString()
   @IsNotEmpty()
-  public star_quantity: number;
+  public name: string;
 
-  @IsEmail()
+  @IsString()
   @IsNotEmpty()
-  public email: string;
+  @IsOptional()
+  public pass: string;
 }

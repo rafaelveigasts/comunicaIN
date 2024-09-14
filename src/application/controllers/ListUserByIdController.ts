@@ -12,9 +12,10 @@ export class ListUserByIdController implements Controller {
 
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
 
-    const { id } = httpRequest.params
+    const { id } = httpRequest.query
     const user = await this.listUserByIdUseCase.execute(id)
 
     return ok(user)
   }
 }
+
