@@ -1,0 +1,18 @@
+services:
+  postgres:
+    container_name: teste_comunicaIN_DB
+    image: postgres
+    environment:
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: teste_einstein
+      PGDATA: /data/postgres
+
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - '5432:5432'
+    restart: unless-stopped
+
+volumes:
+  postgres:

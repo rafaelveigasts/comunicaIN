@@ -1,0 +1,25 @@
+import { Express, Router } from 'express'
+import { join } from 'path'
+import recursiveReaddir from 'recursive-readdir'
+
+export default async (app: Express): Promise<void> => {
+  const router = Router()
+  app.use('/teste_comunicaIN', router)
+
+  recursiveReaddir(join(__dirname, '/../application/routes'), async (err, files) => {
+    for (const file of files) {
+      if (!file.endsWith('.map')) {
+        try {
+          const routeModule = await import(`${file}`)
+          if (typeof routeModule.default === 'function') {
+            routeModule.default(router)
+          } else {
+            console.error(`O módulo em ${file} não exporta uma função padrão.`)
+          }
+        } catch (importErr) {
+          console.error(`Erro ao importar o módulo ${file}:`, importErr)
+        }
+      }
+    }
+  })
+}
