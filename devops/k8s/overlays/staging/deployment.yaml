@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: teste_einstein-api
+  name: teste_comunicain-api
 data:
   ENVIRONMENT: staging
   NODE_ENV: production
@@ -10,7 +10,7 @@ data:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: teste_einstein-api
+  name: teste_comunicain-api
 spec:
   strategy:
     type: RollingUpdate
@@ -20,11 +20,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: teste_einstein-api
+      app: teste_comunicain-api
   template:
     spec:
       containers:
-        - name: teste_einstein-api
+        - name: teste_comunicain-api
           resources:
             requests:
               memory: 128Mi
@@ -37,10 +37,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: teste_einstein-api-svc
+  name: teste_comunicain-api-svc
 spec:
   selector:
-    app: teste_einstein-api
+    app: teste_comunicain-api
   ports:
     - port: 3001
       protocol: TCP
@@ -50,12 +50,12 @@ spec:
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: teste_einstein-api
+  name: teste_comunicain-api
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: teste_einstein-api
+    name: teste_comunicain-api
   minReplicas: 1
   maxReplicas: 1
 
@@ -63,20 +63,20 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: redis-teste_einstein
+  name: redis-teste_comunicain
   labels:
-    app: redis-teste_einstein
+    app: redis-teste_comunicain
 spec:
   selector:
     matchLabels:
-      app: redis-teste_einstein
+      app: redis-teste_comunicain
       role: master
       tier: backend
   replicas: 1
   template:
     metadata:
       labels:
-        app: redis-teste_einstein
+        app: redis-teste_comunicain
         role: master
         tier: backend
     spec:
@@ -94,12 +94,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: redis-teste_einstein-svc
+  name: redis-teste_comunicain-svc
   labels:
-    app: redis-teste_einstein
+    app: redis-teste_comunicain
 spec:
   selector:
-    app: redis-teste_einstein
+    app: redis-teste_comunicain
   ports:
     - port: 6379
       protocol: TCP

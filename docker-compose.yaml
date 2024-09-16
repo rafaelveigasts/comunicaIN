@@ -5,7 +5,7 @@ services:
     environment:
       POSTGRES_USERNAME: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: teste_einstein
+      POSTGRES_DB: teste_comunicain
       PGDATA: /data/postgres
 
     volumes:

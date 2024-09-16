@@ -4,7 +4,7 @@ import { Express } from 'express'
 export default (app: Express): void => {
   app.use(
     statusMonitor({
-      path: '/teste_einstein/status',
+      path: '/teste_comunicain/status',
       title: 'Monitor ROL',
       spans: [
         {
@@ -24,7 +24,7 @@ export default (app: Express): void => {
         {
           protocol: 'http',
           host: 'localhost',
-          path: '/teste_einstein/health',
+          path: '/teste_comunicain/health',
           port: '3001'
         }
       ],

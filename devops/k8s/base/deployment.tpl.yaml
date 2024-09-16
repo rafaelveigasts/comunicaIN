@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: teste_einstein_api
+  name: teste_comunicain_api
 data:
   NODE_ENV: production
   PORT: '3000'
@@ -10,7 +10,7 @@ data:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: teste_einstein_api
+  name: teste_comunicain_api
 spec:
   template:
     metadata:
@@ -19,12 +19,12 @@ spec:
         instrumentation.opentelemetry.io/inject-nodejs: 'true'
     spec:
       containers:
-        - name: teste_einstein_api
-          image: 'gcr.io/GOOGLE_CLOUD_PROJECT/teste_einstein_api:latest'
+        - name: teste_comunicain_api
+          image: 'gcr.io/GOOGLE_CLOUD_PROJECT/teste_comunicain_api:latest'
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
-                name: teste_einstein_api
+                name: teste_comunicain_api
           volumeMounts:
             - name: service-account
               mountPath: /var/run/secret/cloud.google.com
@@ -41,10 +41,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: teste_einstein_api-svc
+  name: teste_comunicain_api-svc
 spec:
   selector:
-    app: teste_einstein_api
+    app: teste_comunicain_api
   ports:
     - port: 3001
       protocol: TCP
@@ -55,12 +55,12 @@ spec:
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: teste_einstein_api
+  name: teste_comunicain_api
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: teste_einstein_api
+    name: teste_comunicain_api
   minReplicas: 2
   maxReplicas: 3
   metrics:

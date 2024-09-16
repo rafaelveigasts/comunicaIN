@@ -7,7 +7,7 @@ steps:
       - '-f'
       - 'devops/pkg/dockerfile'
       - '-t'
-      - 'gcr.io/$PROJECT_ID/teste_einstein:$SHORT_SHA-$BUILD_ID'
+      - 'gcr.io/$PROJECT_ID/teste_comunicain:$SHORT_SHA-$BUILD_ID'
       - '.'
 
   # pushes the image to Container Registry
@@ -15,7 +15,7 @@ steps:
     id: Push
     args:
       - 'push'
-      - 'gcr.io/$PROJECT_ID/teste_einstein:$SHORT_SHA-$BUILD_ID'
+      - 'gcr.io/$PROJECT_ID/teste_comunicain:$SHORT_SHA-$BUILD_ID'
 
   # generates the new manifest
   #the entrypoint in a build step to specify an entrypoint if you don't want to use the default entrypoint of the builder.
@@ -39,7 +39,7 @@ steps:
       - 'CLOUDSDK_CONTAINER_CLUSTER='
 
 tags:
-  - 'repo-teste_einstein'
+  - 'repo-teste_comunicain'
   - 'team-architecture'
 
 timeout: 1200s
