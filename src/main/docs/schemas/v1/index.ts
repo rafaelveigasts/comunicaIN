@@ -2,3 +2,4 @@
 export * from './createUserSchema'
 export * from './listUsersSchema'
 export * from './updateUserSchema'
+export * from './cepSchema'

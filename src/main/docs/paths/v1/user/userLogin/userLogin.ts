@@ -1,36 +1,49 @@
-export const updateUser = {
-  put: {
-    tags: ['User'],
-    summary: 'API para atualizar um usuário',
+export const userLogin = {
+  post: {
+    tags: ['Login'],
+    summary: 'API para logar um usuário',
 
     parameters: [
-      {
-        in: 'path',
-        name: 'id',
-        required: true,
-        description: 'Id da usuário',
-        example: 'uuid'
-      },
       {
         in: 'body',
         name: 'name',
         required: true,
-        description: 'nome do usuario',
-        example: 'John Doe'
+        description: 'Nome do usuário'
       },
       {
         in: 'body',
         name: 'pass',
         required: true,
-        description: 'password do usuário',
-        example: 'password'
-
+        description: 'password do usuário'
       }
     ],
+    requestBody: {
+      content: {
+        'application/json': {
+          schema: {
+            $ref: '#/schemas/createUserResponse'
+          }
+        }
+      }
+    },
 
     responses: {
       200: {
-        description: 'Ok'
+        description: 'Ok',
+          content: {
+          'application/json': {
+            type: 'object',
+            schema: {
+              type: 'object',
+              properties: {
+                token: {
+                  type: 'string',
+                  example: 'eyJhbGciOi'
+                }
+              }
+            }
+          }
+        }
       },
 
       400: {

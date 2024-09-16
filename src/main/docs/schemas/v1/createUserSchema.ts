@@ -9,10 +9,7 @@ export const createUserSchema = {
 export const createUserResponse = {
   type: 'object',
   properties: {
-    id: { type: 'number' },
     name: { type: 'string' },
-    pass: { type: 'string' },
-    created_at: { type: 'string' },
-    updated_at: { type: 'string' }
+    pass: { type: 'string' }
   }
 }

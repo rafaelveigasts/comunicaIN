@@ -10,7 +10,8 @@ import {
   listUserResponse,
   listUserSchema,
   updateUserSchema,
-  updateUserResponse
+  updateUserResponse,
+  cepSchema
 } from './schemas/'
 
 export default {
@@ -25,5 +26,6 @@ export default {
   listUserResponse,
   listUserSchema,
   updateUserSchema,
-  updateUserResponse
+  updateUserResponse,
+  cepSchema
 }

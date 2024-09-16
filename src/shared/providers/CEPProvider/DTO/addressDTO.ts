@@ -32,3 +32,4 @@ export class InputAddressDTO implements Pick<AddressDTO, 'cep'> {
   @IsString()
   cep: string
 }
+

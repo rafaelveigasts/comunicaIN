@@ -1,3 +1,7 @@
 export * from './listUsers/listUsers'
 export * from './createUser/createUser'
 export * from './updateUser/updateUser'
+export * from './listById/listUserById'
+export * from './deleteUser/deleteUserById'
+export * from './userLogin/userLogin'
+export * from './getCep/getCep'

@@ -13,5 +13,5 @@ export default (app: Express): void => {
   app.use(morganMiddleware)
   app.all(`/${applicationConfig.appPrefix}`, (_, res) =>
     res.redirect(`/${applicationConfig.appPrefix}/docs`)
-  )
+)
 }

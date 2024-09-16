@@ -32,7 +32,7 @@ const cepController = container.resolve(CepController)
 
 export default (router: Router): void => {
   router.post('/login', adaptRoute(loginController))
-  router.get('/cep', adaptRoute(cepController))
+  router.get('/cep/:cep', adaptRoute(cepController))
 
   router.use(validationToken());
 
@@ -47,7 +47,7 @@ export default (router: Router): void => {
     adaptRoute(updateUserController))
 
   router.get(
-    '/user',
+    '/users',
     adaptRoute(listUserController)
   )
 

@@ -1,12 +1,23 @@
+
 import paths from './paths'
 import schemas from './schemas'
 
 export default {
   openapi: '3.0.1',
 
+  components: {
+    securitySchemes: {
+      bearerAuth: {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT'
+      }
+    }
+  },
+
   info: {
-    title: 'API para pesquisas',
-    description: 'Teste desenvolvedor backend Einstein',
+    title: 'API de usuários',
+    description: 'Teste desenvolvedor backend Cominuca.In',
     version: '1.0.0'
   },
   externalDocs: {
@@ -15,7 +26,7 @@ export default {
   },
   servers: [
     {
-      url: '/teste_einstein',
+      url: '/teste_comunicain',
       description: 'Servidor Principal'
     }
   ],
@@ -25,6 +36,6 @@ export default {
 }
 
 export const options = {
-  customSiteTitle: `API para pesquisas`,
+  customSiteTitle: `API para usuários`,
   showExplorer: true
 }

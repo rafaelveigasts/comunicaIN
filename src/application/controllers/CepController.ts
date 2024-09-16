@@ -10,7 +10,7 @@ export class CepController implements Controller {
     private readonly cepProvider: ICEPProvider) {}
 
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
-    const { cep } = httpRequest.body
+    const { cep } = httpRequest.params
     const address = await this.cepProvider.getAddress({ cep })
     return ok(address);
   }

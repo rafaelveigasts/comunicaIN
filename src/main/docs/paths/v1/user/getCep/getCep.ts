@@ -1,36 +1,30 @@
-export const updateUser = {
-  put: {
-    tags: ['User'],
-    summary: 'API para atualizar um usuário',
+export const getCep = {
+  get: {
+    tags: ['CEP'],
+    summary: 'API para buscar um endereço por cep',
+
+    authorization: true,
 
     parameters: [
       {
-        in: 'path',
-        name: 'id',
+        in: 'params',
+        name: 'cep',
         required: true,
-        description: 'Id da usuário',
-        example: 'uuid'
+        description: 'cep do endereço',
+        example: '01311100'
       },
-      {
-        in: 'body',
-        name: 'name',
-        required: true,
-        description: 'nome do usuario',
-        example: 'John Doe'
-      },
-      {
-        in: 'body',
-        name: 'pass',
-        required: true,
-        description: 'password do usuário',
-        example: 'password'
-
-      }
     ],
 
     responses: {
       200: {
-        description: 'Ok'
+        description: 'Ok',
+        content: {
+          'application/json': {
+            schema: {
+              $ref: '#/schemas/cepSchema'
+            }
+          }
+        }
       },
 
       400: {

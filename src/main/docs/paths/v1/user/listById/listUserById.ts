@@ -1,7 +1,9 @@
-export const updateUser = {
-  put: {
+export const listUserById = {
+  get: {
     tags: ['User'],
-    summary: 'API para atualizar um usuário',
+    summary: 'API para buscar um usuário por id',
+
+    authorization: true,
 
     parameters: [
       {
@@ -11,26 +13,18 @@ export const updateUser = {
         description: 'Id da usuário',
         example: 'uuid'
       },
-      {
-        in: 'body',
-        name: 'name',
-        required: true,
-        description: 'nome do usuario',
-        example: 'John Doe'
-      },
-      {
-        in: 'body',
-        name: 'pass',
-        required: true,
-        description: 'password do usuário',
-        example: 'password'
-
-      }
     ],
 
     responses: {
       200: {
-        description: 'Ok'
+        description: 'Ok',
+        content: {
+          'application/json': {
+            schema: {
+              $ref: '#/schemas/listUserResponse'
+            }
+          }
+        }
       },
 
       400: {

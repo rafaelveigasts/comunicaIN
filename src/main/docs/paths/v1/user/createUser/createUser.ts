@@ -4,6 +4,7 @@ export const createUser = {
     summary: 'API para criar um usuário',
 
     parameters: [
+ 
       {
         in: 'body',
         name: 'name',
