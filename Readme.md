@@ -8,4 +8,5 @@ Teste Desenvolvedor backend
 3. rode as migrations
    1. **npx prisma migrate dev**
       1. será criado um usuário "Seed" com a senha 123456
-4. Autentique na rota /login para gerar o token e liberar as rotas.
+4. Utilize a collection da raiz do projeto no seu insomnia ou postman para vizualisar as requisições.
+5. Autentique na rota /login para gerar o token e liberar as rotas.
