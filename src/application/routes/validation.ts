@@ -8,9 +8,6 @@ const validateDTO = (DTOClass: any) => {
     const dtoInstance = plainToInstance(DTOClass, req.body);
     const errors = await validate(dtoInstance);
 
-    console.log(dtoInstance)
-    console.log(errors)
-
     if (errors.length > 0) {
       return res.status(400).json({
         message: 'Validation failed',

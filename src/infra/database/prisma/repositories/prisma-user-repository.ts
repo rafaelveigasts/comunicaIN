@@ -35,9 +35,6 @@ export class PrismaUserRepository implements IUserRepository {
         id
       }
     })
-
-    console.log(user)
-
     return user
   }
 
